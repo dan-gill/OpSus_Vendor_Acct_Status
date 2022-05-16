@@ -74,12 +74,16 @@ function Get-AgedADUsers {
 }
 
 # The script can only run on a DC and the OUs have to exist already.
-if ( Get-WmiObject -Query "select * from Win32_OperatingSystem where ProductType='2'" -and [adsi]::Exists("LDAP://$VenderServiceOU") -and [adsi]::Exists("LDAP://$VenderProjectOU")) {
-  # Move aged project users to service OU
-  Get-AgedADUsers -OU $VendorProjectOU -InactiveHours $VendorProjectInactiveHours -ProcessUnusedAccounts $false | Move-ADObject -TargetPath $VendorServiceOU -WhatIf
+if ( Get-WmiObject -Query "select * from Win32_OperatingSystem where ProductType='2'" ) {
+  if ( [adsi]::Exists("LDAP://$VendorServiceOU") -and [adsi]::Exists("LDAP://$VendorProjectOU" ) ) {
+    # Move aged project users to service OU
+    Get-AgedADUsers -OU $VendorProjectOU -InactiveHours $VendorProjectInactiveHours -ProcessUnusedAccounts $false | Move-ADObject -TargetPath $VendorServiceOU
 
-  # Disable aged users in service OU
-  Get-AgedADUsers -OU $VendorServiceOU -InactiveHours $VendorServiceInactiveHours -ProcessUnusedAccounts $true | Disable-ADAccount -WhatIf
+    # Disable aged users in service OU
+    Get-AgedADUsers -OU $VendorServiceOU -InactiveHours $VendorServiceInactiveHours -ProcessUnusedAccounts $true | Disable-ADAccount
+  } else {
+    Write-Error -Message 'Unable to locate OU(s). Please verify OU paths.'
+  }
 } else {
-  Write-Error -Message 'This script can only run on a domain controller and the OUs must already exist.'
+  Write-Error -Message 'This script can only run on a domain controller.'
 }
