@@ -32,12 +32,12 @@ Create `settings.json` file in script directory.
 
 ### OU.ShortTerm
 
-List the full path for the OU that uses a shorter valid period for user accounts. Users from the longer validity period will move here when they are aged out. \
+List the distinguishedName of the OU that uses a shorter valid period for user accounts. Users from the longer validity period will move here when they are aged out. \
 **Example:** `"OU=Vendor Support,OU=Users,OU=Contoso,DC=FABRIKAM,DC=COM"`
 
 ### OU.LongTerm
 
-List the full path for the OU that holds the longer valid period for user accounts. \
+List the distinguishedName of the the OU that holds the longer valid period for user accounts. \
 **Example:** `"OU=Vendor Project,OU=Users,OU=Contoso,DC=FABRIKAM,DC=COM"`
 
 ### ValidPeriodHours.ShortTerm
