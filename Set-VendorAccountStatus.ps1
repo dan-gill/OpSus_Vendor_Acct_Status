@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    A script to manages vendor accounts located in specified OUs by moving
+    A script to manage vendor accounts located in specified OUs by moving
     and/or disabling accounts if no logins occur for a specified period.
 .DESCRIPTION
     This script automates migrating vendor accounts to specified OUs by
