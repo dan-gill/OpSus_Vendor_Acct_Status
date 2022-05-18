@@ -13,20 +13,23 @@ Manages vendor accounts located in specified OUs by moving and/or disabling acco
 
 ## Requirements
 
-Create `settings.json` file in script directory.
+1. Run `Set-VendorAccountStatus.ps1` from a domain controller.
+2. Create `settings.json` file in script directory.
 
-```json
-{
-  "OU": {
-    "ShortTerm": "OU=Vendor Support,OU=Users,OU=Contoso,DC=FABRIKAM,DC=COM",
-    "LongTerm": "OU=Vendor Project,OU=Users,OU=Contoso,DC=FABRIKAM,DC=COM"
-  },
-  "ValidPeriodHours": {
-    "ShortTerm": 72,
-    "LongTerm": 2160
-  }
-}
-```
+   **Example:**
+
+   ```json
+   {
+     "OU": {
+       "ShortTerm": "OU=Vendor Support,OU=Users,OU=Contoso,DC=FABRIKAM,DC=COM",
+       "LongTerm": "OU=Vendor Project,OU=Users,OU=Contoso,DC=FABRIKAM,DC=COM"
+     },
+     "ValidPeriodHours": {
+       "ShortTerm": 72,
+       "LongTerm": 2160
+     }
+   }
+   ```
 
 ## Definitions
 
