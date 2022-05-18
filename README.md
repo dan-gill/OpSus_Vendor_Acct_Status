@@ -63,12 +63,12 @@ Specify the number of hours, as an integer, since the last logon for the longer 
 1. Open Active Directory Users and Computers.
 2. Enable Advanced Features (**_View &rarr; Advanced Features_**).
 
-   ![View -> Advanced Features](/assets/images/ADUC_AdvFeatures.png)
+   ![View -> Advanced Features](assets/images/ADUC_AdvFeatures.png)
 
 3. Right-click desired OU and select **Properties**.
 
-   ![Right-click -> Properties](/assets/images/OU_Properties.png)
+   ![Right-click -> Properties](assets/images/OU_Properties.png)
 
 4. Select **Attribute Editor** tab and locate **distinguishedName** attribute.
 
-   ![distinguishedName under Attribute Editor tab](/assets/images/distinguishedName.png)
+   ![distinguishedName under Attribute Editor tab](assets/images/distinguishedName.png)
